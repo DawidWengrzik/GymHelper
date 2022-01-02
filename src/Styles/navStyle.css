@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap');
+
+.nav__container{
+    height: 35px;
+    background-color: indigo;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    color: ivory;
+}
+
+.logo {
+    letter-spacing: 2px;
+    font-weight: 500;
+    font-size: 20px;
+    padding-left: 10%;
+}
+
+.nav__items{
+    display: flex;
+    width: 40%;
+    justify-content: space-around;
+    padding-right: 3%;
+}
+
+.nav__items li{
+    list-style: none;
+}
