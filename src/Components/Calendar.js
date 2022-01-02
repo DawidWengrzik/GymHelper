@@ -4,6 +4,7 @@ import getMonth from "../Redux/getMonth";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useSelector, useDispatch } from "react-redux";
+import { monthInc, yearInc } from "../Redux/Actions/increments";
 
 const Calendar = () => {
  
@@ -26,12 +27,14 @@ const Calendar = () => {
             <div className="year">
                 <input type="button" value="<"  className="decrement__btn"/>
                 <span> { year } </span>
-                <input type="button" value=">" className="increment__btn" />
+                <input onClick={useDispatch(yearInc)} 
+                type="button" value=">" className="increment__btn" />
             </div>
             <div className="month">
                 <input type="button" value="<"  className="decrement__btn"/>
                 <span className="">{ month }</span>
-                <input type="button" value=">" className="increment__btn" />
+                <input onClick={useDispatch(yearInc)} 
+                type="button" value=">" className="increment__btn" />
             </div>            
             <div className="days__container">
                 {/* Clear the code export */}
