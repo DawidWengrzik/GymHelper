@@ -1,4 +1,4 @@
-# Application created for redux learning
+# Application created for redux learn
 
 # Getting Started with Create React App
 
