@@ -24,3 +24,11 @@
     border: none;
     background-color: #C5CBD3;
 }
+
+.radio__btn-active{
+    border-radius: 50%;    
+    height: 15px;
+    width: 15px;
+    border: none;
+    background-color: #BAE8CF;
+}

@@ -1,37 +1,28 @@
 import React from "react";
 import '../../Styles/calendarItem.css';
 import BodyPartition from "./BodyPartition";
+import { useState } from 'react';
 
 const CalendarItem = ({ stateHandler }) => {
 
+    const [partition] = useState(["Nogi", "Klatka", "Plecy", "Barki", "Biceps", "Triceps"]);
+
     return(
         <div className="event__container">
-            <form className="event__form">                
-                <div>    
-                    <span className="train__head">Trening</span>                                    
+            <form className="event__form">   
+                <span className="train__head">Trening</span>              
+                <div>                                                       
                     <ul className="partitions__list">
-                        <li>
-                            <BodyPartition partition={"Nogi"}/>
-                        </li>
-                        <li>
-                            <BodyPartition partition={"Klatka"}/>
-                        </li>
-                        <li>
-                            <BodyPartition partition={"Plecy"}/>
-                        </li>
-                        <li>
-                            <BodyPartition partition={"Barki"}/>
-                        </li>
-                        <li>
-                            <BodyPartition partition={"Biceps"}/>
-                        </li>
-                        <li>
-                            <BodyPartition partition={"Triceps"}/>
-                        </li>
+                        {partition.map(el => 
+                            <li  key={el}>
+                                <BodyPartition partition={el}/>
+                            </li>
+                            )
+                        }
                     </ul>
                 </div>
                 <button onClick={stateHandler} className="close__btn">X</button>
-                <button type="submit">Submit</button>
+                <button className="submitPartitions" type="submit">Submit</button>
             </form>
         </div>
     )

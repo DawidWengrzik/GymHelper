@@ -56,7 +56,7 @@ const Calendar = () => {
                     <div className="day" 
                     key={`${el.getFullYear()}, ${el.getMonth()}, ${el.getDate()}`}>
                         {/* Inside day box */}
-                        <div className="date__container">{ el.getDate() }</div>
+                        <span className="date__container">{ el.getDate() }</span>
                         <span className="week-day__name">{ weekDays[el.getDay()] }</span>
                 
                         <button onClick={stateHandler} className="add__event">

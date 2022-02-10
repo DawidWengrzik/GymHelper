@@ -31,8 +31,8 @@
 
 .days__container {    
     margin-top: 1rem;
-    display: grid;    
-    grid-template-columns: repeat(7, 1fr);
+    display: grid;   
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
     grid-auto-rows: auto;
     gap: 10px;
     
@@ -44,26 +44,26 @@
     margin: 5px 0;   
     height: 150px;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: column;
 }
 
 .date__container{
-    position: absolute;
-    top: 5px;
-    left: 8px;
     font-size: 24px;
+    padding: 5px 10px 0 10px;
 }
 
 .week-day__name{    
-    padding: 12px 10px 0 0  ;
+    padding: 0 10px;
 }
 
 .add__event {    
+    cursor: pointer;
     position: absolute;
     padding: 3px;
     color: ivory;
     background-color: indigo;
     border: none;
-    bottom: 5px;
-    right: 5px;    
+    bottom: 7px;
+    right: 8px;   
+    border-radius: 15%; 
 }
