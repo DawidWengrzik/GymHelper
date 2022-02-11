@@ -43,7 +43,7 @@
     font-size: 15px;
     border: 1px black solid;
     border-radius: 5px;
-    transition: ease-in-out 0.5s;
+    transition: ease-in-out 0.6s;
 }
 
 .submitPartitions:hover{

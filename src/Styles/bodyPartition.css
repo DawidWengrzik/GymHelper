@@ -4,6 +4,7 @@
 }
 
 .partition__container {
+    cursor: pointer;
     background-color: white;
     width: 100px;
     height: auto;
