@@ -37,33 +37,3 @@
     gap: 10px;
     
 }
-
-.day{
-    position: relative;
-    border: solid indigo 1px;
-    margin: 5px 0;   
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-}
-
-.date__container{
-    font-size: 24px;
-    padding: 5px 10px 0 10px;
-}
-
-.week-day__name{    
-    padding: 0 10px;
-}
-
-.add__event {    
-    cursor: pointer;
-    position: absolute;
-    padding: 3px;
-    color: ivory;
-    background-color: indigo;
-    border: none;
-    bottom: 7px;
-    right: 8px;   
-    border-radius: 15%; 
-}

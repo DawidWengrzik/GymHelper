@@ -1,12 +1,10 @@
 import '../../Styles/calendar.css';
 import getMonth from "../../Redux/getMonth";
-import CalendarItem from "./CalendarItem";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+
 import { useSelector, useDispatch } from "react-redux";
 import { monthDec, monthInc, yearDec, yearInc } from "../../Redux/Actions/increments";
+import CalendraItem from './CalendarItem';
 
 const Calendar = () => { 
     /* Redux State */
@@ -16,12 +14,7 @@ const Calendar = () => {
     /* Syntatcic sugar */
     const dispatch = useDispatch();
 
-    const [active, setActive] = useState(false);
-
-    const stateHandler = (e) => {
-        e.preventDefault();
-        setActive(!active);       
-    }
+  
 
     const weekDays = {
         '0': 'Sunday',
@@ -34,7 +27,7 @@ const Calendar = () => {
     }
     return(        
         <div className="calendar__container">
-            {active ? <CalendarItem stateHandler={stateHandler} /> : null}
+            
             <div className="year">
                 <input onClick={() => dispatch(yearDec())} 
                 type="button" value="<"  className="decrement__btn"/>
@@ -53,17 +46,11 @@ const Calendar = () => {
                 {/* Clear the code later => export */}
                 {/* Mapping our redux state */}
                 {getMonth(month, year).map( el => 
-                    <div className="day" 
-                    key={`${el.getFullYear()}, ${el.getMonth()}, ${el.getDate()}`}>
-                        {/* Inside day box */}
-                        <span className="date__container">{ el.getDate() }</span>
-                        <span className="week-day__name">{ weekDays[el.getDay()] }</span>
-                
-                        <button onClick={stateHandler} className="add__event">
-                            <FontAwesomeIcon icon={faPlus} />
-                        </button>
-
-                    </div>)}
+                    <CalendraItem 
+                    date={el.getDate()}
+                    weekDay={weekDays[el.getDay()]}
+                    key={`${el.getFullYear()}, ${el.getMonth()}, ${el.getDate()}`}/> 
+                )}
             </div>
         </div>
     )

@@ -1,30 +1,30 @@
+import '../../Styles/calendarItem.css'
 import React from "react";
-import '../../Styles/calendarItem.css';
-import BodyPartition from "./BodyPartition";
-import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { useState } from "react";
+import EventModal from "./EventModal";
 
-const CalendarItem = ({ stateHandler }) => {
 
-    const [partition] = useState(["Nogi", "Klatka", "Plecy", "Barki", "Biceps", "Triceps"]);
+const CalendraItem = ({date,weekDay}) =>{
 
+    const [active, setActive] = useState(false);
+    const [events, setEvents] = useState([])
+
+    const stateHandler = (e) => {
+        e.preventDefault();
+        setActive(!active);       
+    }
     return(
-        <div className="event__container">
-            <form className="event__form">   
-                <span className="train__head">Trening</span>              
-                <div>                                                       
-                    <ul className="partitions__list">
-                        {partition.map(el => 
-                            <li  key={el}>
-                                <BodyPartition partition={el}/>
-                            </li>
-                            )
-                        }
-                    </ul>
-                </div>
-                <button onClick={stateHandler} className="close__btn">X</button>
-                <button className="submitPartitions" type="submit">Submit</button>
-            </form>
+        <div className="day">
+            {active ? <EventModal stateHandler={stateHandler} events={events} setEvents={setEvents}/> : null}
+            <span className="date__container">{ date }</span>
+            <span className="week-day__name">{ weekDay }</span>
+            <button onClick={stateHandler} className="add__event">
+                <FontAwesomeIcon icon={faPlus} />
+            </button>
         </div>
     )
 }
-export default CalendarItem;
+
+export default CalendraItem;
