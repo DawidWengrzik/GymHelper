@@ -18,13 +18,13 @@ const BodyPartition = ({ partition, events, setEvents  }) => {
     }
 
     return(
-        <div className="partition__container" onClick={handleChecked}>
+        <li className="partition__container" onClick={handleChecked}>
             <span>{partition}</span>
             {active ?
                 <div className="radio__btn-active"></div>:
                 <div className="radio__btn"></div>
             }            
-        </div>
+        </li>
     )
 }
 

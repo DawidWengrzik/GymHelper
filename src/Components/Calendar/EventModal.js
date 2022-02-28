@@ -2,13 +2,24 @@ import React from "react";
 import '../../Styles/eventModal.css';
 import BodyPartition from "./BodyPartition";
 import { useState } from 'react';
+import { useDispatch } from "react-redux";
+import { addEvent } from "../../Redux/Actions/modifyEvents";
 
-const EventModal = ({ stateHandler, events, setEvents }) => {
+const EventModal = ({ stateHandler, events, setEvents, calendarItemKey }) => {
 
     const [partition] = useState(["Nogi", "Klatka", "Plecy", "Barki", "Biceps", "Triceps"]);
+
     
-    const submitEventsHandle = (e) => {
-        e.preventDefault();
+    /* 
+        Syntatcic sugar 
+        Unpack the state
+    */
+    const dispatch = useDispatch();
+
+    const addEventHandler = (e) => {
+        stateHandler(e);        
+        dispatch(addEvent( calendarItemKey, events ));
+        setEvents([]);
     }
 
     return(
@@ -17,16 +28,19 @@ const EventModal = ({ stateHandler, events, setEvents }) => {
                 <span className="train__head">Trening</span>              
                 <div>                                                       
                     <ul className="partitions__list">
-                        {partition.map(el => 
-                            <li  key={el}>
-                                <BodyPartition partition={el} events={events} setEvents={setEvents}/>
-                            </li>
+                        {partition.map(el =>                            
+                            <BodyPartition partition={el} events={events} setEvents={setEvents} key={el}/>                            
                             )
                         }
                     </ul>
                 </div>
                 <button onClick={stateHandler} className="close__btn">X</button>
-                <button onClick={stateHandler} className="submitPartitions" type="submit">Submit</button>
+                
+                {/* Confirm chosen parts and add to global state */}
+                <button onClick={addEventHandler} 
+                    className="submitPartitions" 
+                    type="submit">Submit
+                </button>
             </form>
         </div>
     )

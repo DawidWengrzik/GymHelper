@@ -1,7 +1,5 @@
 import '../../Styles/calendar.css';
 import getMonth from "../../Redux/getMonth";
-
-
 import { useSelector, useDispatch } from "react-redux";
 import { monthDec, monthInc, yearDec, yearInc } from "../../Redux/Actions/increments";
 import CalendraItem from './CalendarItem';
@@ -10,8 +8,11 @@ const Calendar = () => {
     /* Redux State */
     const month = useSelector(state => state.month);
     const year = useSelector(state => state.year);
-
-    /* Syntatcic sugar */
+    
+    /* 
+        Syntatcic sugar 
+        Unpack the state
+    */
     const dispatch = useDispatch();
 
   
@@ -26,8 +27,7 @@ const Calendar = () => {
         '6': 'Saturday',
     }
     return(        
-        <div className="calendar__container">
-            
+        <div className="calendar__container">            
             <div className="year">
                 <input onClick={() => dispatch(yearDec())} 
                 type="button" value="<"  className="decrement__btn"/>
@@ -49,7 +49,8 @@ const Calendar = () => {
                     <CalendraItem 
                     date={el.getDate()}
                     weekDay={weekDays[el.getDay()]}
-                    key={`${el.getFullYear()}, ${el.getMonth()}, ${el.getDate()}`}/> 
+                    key={`${el.getFullYear()}, ${el.getMonth()}, ${el.getDate()}`}
+                    calendarItemKey={`${el.getFullYear()}/${el.getMonth()}/${el.getDate()}`}/> 
                 )}
             </div>
         </div>
