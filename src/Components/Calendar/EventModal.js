@@ -19,7 +19,6 @@ const EventModal = ({ stateHandler, events, setEvents, calendarItemKey }) => {
     const addEventHandler = (e) => {
         stateHandler(e);        
         dispatch(addEvent( calendarItemKey, events ));
-        setEvents([]);
     }
 
     return(
@@ -34,7 +33,7 @@ const EventModal = ({ stateHandler, events, setEvents, calendarItemKey }) => {
                         }
                     </ul>
                 </div>
-                <button onClick={stateHandler} className="close__btn">X</button>
+                <button onClick={e => { stateHandler(e); }} className="close__btn">X</button>
                 
                 {/* Confirm chosen parts and add to global state */}
                 <button onClick={addEventHandler} 

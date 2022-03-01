@@ -1,0 +1,17 @@
+.active__events__circle{
+    position: absolute;
+    bottom: 7px;
+    left: 8px; 
+    background-color: #BAE8CF;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.events__counter{
+    font-size: 10px;
+}
